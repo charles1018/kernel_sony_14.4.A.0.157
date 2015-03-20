@@ -24,6 +24,10 @@
 		make -j4
 ### 如果編譯過程順利核心(zImage)檔案位在
 		arch/arm/boot
+### 如果要徹底清除編譯過程產生的檔案和核心的設定檔.config，可執行以下指令
+		make mrproper
+### 如過想刪除大多數編譯產生的檔案，但想保留核心的設定檔.config供下次此用可執行以下指令
+		make clean
 ____
 如何製作boot.img開機檔案
 =================================== 
@@ -32,10 +36,9 @@ ____
 將官方原本的boot.img解開來修改和置換我們前面編譯好的核心，
 然後打包回成可以刷入手機的boot.img開機檔案。
 ##### 這邊提供兩個工具請依自己的需要決定要使用哪一種
-=================================== 
 1.Android Image Kitchen:
 -----------------------------------
-##### 標準android格式和高通晶片的裝置可以採用此工具
+##### boot.img是標準android格式(例如cm11/cm12)和高通晶片的裝置可以採用此工具
 ##### xda論壇討論區：
 <http://forum.xda-developers.com/showthread.php?t=2073775>
 ##### 目前最新版本linux系統的Android Image Kitchen工具名稱為：
@@ -47,7 +50,6 @@ ____
 ##### 可至作者的github下載解壓縮後即可使用
 <https://github.com/charles1018/XZDualRecovery>
 此工具可將官方的核心檔案kernel.sin解包，修改完後在打包成boot.img開機檔案。
-=================================== 
 ### 這邊以多數裝置都可以通用的Android Image Kitchen來做範:
 ##### 將工具壓縮檔解壓縮後進入工作目錄，將官方原本的boot.img複製過來，打開終端機輸入解包的指令
 		./unpackimg.sh boot.img
@@ -58,7 +60,7 @@ ramdisk目錄裡面的檔案其實就是暫時的根目錄檔案系統 (Root Fil
 要修改開機第一屏畫面，增加recovery功能，busybox等功能都在個目錄裡面。
 ##### 完成所有的修改後，輸入下列指令打包回boot.img
 		./repackimg.sh boot.img
-##### 修改好的boot.img會被命名為
+#####此時修改好的boot.img會被命名為
 		image-new.img
 ##### 要清除解包和打包過程中所產生的檔案可執行下列指令
 		./cleanup.sh
