@@ -49,8 +49,8 @@ ____
 ##### sony xperia裝置可使用此工具：
 ##### 可至作者的github下載解壓縮後即可使用
 <https://github.com/charles1018/XZDualRecovery>
-此工具可將官方的核心檔案kernel.sin解包，修改完後在打包成boot.img開機檔案。
-### 這邊以多數裝置都可以通用的Android Image Kitchen來做範:
+##### 此工具可將官方的核心檔案kernel.sin解包，修改完後在打包成boot.img開機檔案。
+### 這邊以多數裝置都可以通用的Android Image Kitchen來做範例:
 ##### 將工具壓縮檔解壓縮後進入工作目錄，將官方原本的boot.img複製過來，打開終端機輸入解包的指令
 		./unpackimg.sh boot.img
 ##### 此時你可以看到官方的核心檔案位置就在
